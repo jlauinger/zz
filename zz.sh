@@ -12,10 +12,12 @@ local INSULT="Do you even think before you type?"
 
 zz() {
   if [[ -z $1 ]]; then
-    cat $ZZFILE | awk -F "|" '{ print "\033[1m" $1 "\033[0m -> \033[95m" $2 "\033[0m" }'
+    if [[ -f $ZZFILE ]]; then
+      cat $ZZFILE | awk -F "|" '{ print "\033[1m" $1 "\033[0m -> \033[95m" $2 "\033[0m" }'
+    fi
   else
     if [[ -f $ZZFILE ]]; then
-      HIT=`GREP_OPTIONS='' grep $1 $ZZFILE`
+      HIT=`GREP_OPTIONS='' grep ^$1\| $ZZFILE`
       if [[ -z $HIT ]]; then
         echo "Don't know that location, sorry..."
       else
