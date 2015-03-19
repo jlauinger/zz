@@ -11,9 +11,9 @@ zzify stonehenge
 ```
 to create a link to this location with the mnemomic `stonehenge`. Avoid calling `zzify` without arguments as it will insult you very badly. You can also create a link to a different location by calling
 ```
-zzify capeofgoodhood /home/your-awesome-name-here/cool-stuff
+zzify capeofgoodhope /home/your-awesome-name-here/cool-stuff
 ```
-Calling `zzify` to a symbolic name that is already in use will overwrite the old location. Be very careful as it won't ask you whether you really meant what you were typing. At the end of the day, you want to be treated as a grown-up person, don't you do? I know you do, right?
+Calling `zzify` to a symbolic name that is already in use will overwrite the old location. Be very careful as it won't ask you whether you really meant what you were typing. At the end of the day, you want to be treated as a grown-up person, don't you? I know you do, right?
 Oh, and if you feel you really need to, you can also delete existing jump marks by issuing
 ```
 zzify --delete acropolis
