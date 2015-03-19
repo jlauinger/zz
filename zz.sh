@@ -11,7 +11,10 @@ local ZZFILE=~/.zz
 local INSULT="Do you even think before you type?"
 
 zz() {
-  echo not implemented yet, go away
+  if [[ -z $1 ]]; then
+    cat $ZZFILE | awk -F "|" '{ print "\033[1m" $1 "\033[0m -> \033[95m" $2 "\033[0m" }'
+  else
+  fi
 }
 
 zzify() {
