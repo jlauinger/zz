@@ -8,7 +8,7 @@ alias zz=_zz
 alias zzify=_zzify
 
 local ZZFILE=~/.zz
-local INSULT="Do you even think before you type?"
+local INSULT="Do you even think before you type, moron?"
 
 zz() {
   if [[ -z $1 ]]; then
@@ -17,7 +17,7 @@ zz() {
     fi
   else
     if [[ -f $ZZFILE ]]; then
-      HIT=`GREP_OPTIONS='' grep ^$1\| $ZZFILE`
+      HIT=`GREP_OPTIONS='' grep ^$1\| $ZZFILE 2>/dev/null | tail -n 1`
       if [[ -z $HIT ]]; then
         echo "Don't know that location, sorry..."
       else
