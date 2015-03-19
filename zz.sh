@@ -14,6 +14,17 @@ zz() {
   if [[ -z $1 ]]; then
     cat $ZZFILE | awk -F "|" '{ print "\033[1m" $1 "\033[0m -> \033[95m" $2 "\033[0m" }'
   else
+    if [[ -f $ZZFILE ]]; then
+      HIT=`GREP_OPTIONS='' grep $1 $ZZFILE`
+      if [[ -z $HIT ]]; then
+        echo "Don't know that location, sorry..."
+      else
+        TARGET=`echo $HIT | awk -F "|" '{ print $2 }'`
+        cd $TARGET
+      fi
+    else
+      echo "Don't know that location, sorry..."
+    fi
   fi
 }
 
