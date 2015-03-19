@@ -7,8 +7,8 @@
 alias zz=_zz
 alias zzify=_zzify
 
-local ZZFILE='~/.zz'
-local INSULT='Do you even think before you type?'
+local ZZFILE=~/.zz
+local INSULT="Do you even think before you type?"
 
 zz() {
   echo not implemented yet, go away
@@ -19,6 +19,18 @@ zzify() {
     echo $INSULT
   else
     case $1 in
+      --i-fucked-up-start-over-again)
+        case $2 in
+          --really)
+            if [[ -f $ZZFILE ]]; then
+              rm $ZZFILE
+            fi
+            ;;
+          *)
+            echo "are you sure?"
+            ;;
+        esac
+        ;;
       --delete)
         if [[ -z $2 ]]; then
           echo $INSULT
@@ -28,27 +40,19 @@ zzify() {
           fi
         fi
         ;;
-      --i-fucked-up-start-over-again)
-        case $2 in
-          --really)
-            if [[ -f $ZZFILE ]]; then
-              rm $ZZFILE
-              echo "and it's gone..."
-            fi
-            ;;
-          *)
-            echo "are you sure?"
-            ;;
-        esac
-        ;;
       *)
-        MNEMOMIC=$1
-        if [[ -z $2 ]]; then
-          TARGET=$PWD
+        if [[ $1 =~ ^-.* ]]; then
+          echo "unrecognized option"
         else
-          TARGET=$2
+          MNEMOMIC=$1
+          if [[ -z $2 ]]; then
+            TARGET=$PWD
+          else
+            TARGET=$2
+          fi
+          _zzify --delete $MNEMOMIC
+          echo "$MNEMOMIC|$TARGET" >> $ZZFILE
         fi
-        echo $TARGET
         ;;
     esac
   fi
