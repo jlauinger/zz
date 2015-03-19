@@ -42,9 +42,10 @@ No, actually it's an extremely easy script. Just look at the code, you will most
 ## License
 
 Created and copyright 2015 by Johannes Lauinger
+
 Released just for you under the terms of the GNU General Public License, Version 3
 
 Go ahead and modify it. It would be awkward if you I both had the exact same working style and this script would fit you perfectly, wouldn't it? If you do something awesome with it, you can submit a pull request, too.
 
 ----
-`*`: it is `zzify --i-fucked-up-start-over-again --really`
+`*`: it's `zzify --i-fucked-up-start-over-again --really`
