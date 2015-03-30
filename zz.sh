@@ -7,8 +7,8 @@
 alias zz=_zz
 alias zzify=_zzify
 
-local ZZFILE=~/.zz
-local INSULT="Do you even think before you type, moron?"
+ZZFILE=~/.zz
+INSULT="Do you even think before you type, moron?"
 
 zz() {
   if [[ -z $1 ]]; then
@@ -22,7 +22,7 @@ zz() {
         echo "Don't know that location, sorry..."
       else
         TARGET=`echo $HIT | awk -F "|" '{ print $2 }'`
-        cd $TARGET
+        cd "$TARGET"
       fi
     else
       echo "Don't know that location, sorry..."
@@ -62,9 +62,9 @@ zzify() {
         else
           MNEMOMIC=$1
           if [[ -z $2 ]]; then
-            TARGET=$PWD
+            TARGET="$PWD"
           else
-            TARGET=$2
+            TARGET="$2"
           fi
           _zzify --delete $MNEMOMIC
           echo "$MNEMOMIC|$TARGET" >> $ZZFILE
